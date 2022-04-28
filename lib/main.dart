@@ -1,8 +1,8 @@
-import 'package:bookshop/pages/main-page.dart';
+import 'package:bookshop/controller/splash_controller.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:get/get.dart';
 
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'routes/app_routes.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -14,30 +14,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: 'Book Store',
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      locale: Get.deviceLocale,
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: '/',
+      initialBinding: BindingsBuilder(() {
+        Get.lazyPut<SplashController>(
+          () => SplashController(),
+        );
+      }),
+      getPages: appRoutes,
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainPage())));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white, child: Image.asset('assets/images/book.webp'));
   }
 }

@@ -1,0 +1,15 @@
+// const String LoginRoute = "/login";
+// const String ResultRoute = "/result";
+const String HomeRoute = "/home";
+const String BookDetailRoute = "/bookDetail";
+// const String DownloadAudioVideoRoute = "/download";
+// const String NaatRoute = "/naat";
+// const String NaatDetailRoute = "/naatDetail";
+// const String NaatAudioRoute = "/naatAudio";
+// const String NaatVideoRoute = "/naatVideo";
+// const String NaatAkhirRoute = "/naatAkhir";
+// const String FavoriteRoute = "/favorite";
+// const String SettingsRoute = "/settings";
+// const String ConnectUsRoute = "/connectUs";
+// const String SearchByKalamRoute = "/searchByKalam";
+// const String SearchAllKalamRoute = "/seachAllKalam";

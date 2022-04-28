@@ -1,24 +1,18 @@
-import 'package:bookshop/cards/book-card.dart';
-import 'package:flutter/gestures.dart';
+import 'package:bookshop/view/book_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key); ////
+import '../routes/routes_name.dart';
 
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             'Books',
             style: TextStyle(fontSize: 25),
@@ -34,7 +28,7 @@ class _MainPageState extends State<MainPage> {
             closeOnScroll: true,
             startActionPane: ActionPane(motion: ScrollMotion(), children: [
               SlidableAction(
-                onPressed: (context) => Get.to(BookCard()),
+                onPressed: (context) => Get.toNamed(BookDetailRoute),
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.deepPurple,
                 icon: Icons.details,
