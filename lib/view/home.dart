@@ -1,3 +1,4 @@
+import 'package:bookshop/controller/home_controller.dart';
 import 'package:bookshop/view/book_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -8,7 +9,8 @@ import '../routes/routes_name.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final _controller = Get.put(HomeController());
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
@@ -26,9 +28,10 @@ class Home extends StatelessWidget {
         itemBuilder: (context, index) {
           return Slidable(
             closeOnScroll: true,
-            startActionPane: ActionPane(motion: ScrollMotion(), children: [
+            startActionPane:
+                ActionPane(motion: const ScrollMotion(), children: [
               SlidableAction(
-                onPressed: (context) => Get.toNamed(BookDetailRoute),
+                onPressed: (_) => _controller.goToBookDetail(),
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.deepPurple,
                 icon: Icons.details,
