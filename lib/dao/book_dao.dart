@@ -29,10 +29,10 @@ class BookDao {
     }
   }
 
-  Future<List<Map<String, dynamic>>> getAllBookData() async {
+  Future<List<Map<String, dynamic>>> getAllBookData(int id) async {
     final db = await database;
     List<Map<String, dynamic>> res = await db.rawQuery(
-        "SELECT * from book  JOIN warehouse ON  book.warehouse_id = warehouse_id  join publisher on book.publisher_id = publisher_id  JOIN auther on book.auther_id = auther_id");
+        "SELECT * from book  JOIN warehouse ON  book.warehouse_id = warehouse_id  join publisher on book.publisher_id = publisher_id  JOIN auther on book.auther_id = auther_id where book.id = $id");
 
     return res;
   }

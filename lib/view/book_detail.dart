@@ -1,6 +1,7 @@
 import 'package:bookshop/controller/book_detail_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class BookDetail extends StatelessWidget {
@@ -61,6 +62,8 @@ class BookDetail extends StatelessWidget {
                     .size(24)
                     .make(),
                 InkWell(
+                    onTap: () =>
+                        _controller.launcher(_controller.bookDetail['phone']),
                     child:
                         ' Contact Number : ${_controller.bookDetail['phone']} '
                             .text
