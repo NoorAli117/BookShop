@@ -26,7 +26,7 @@ class DbHelper {
   Future<Database> initDb() async {
     final databasesPath = await getDatabasesPath();
     final path = join(databasesPath, "assets/database/BookStore.db");
-
+    print(path);
     var db = await openDatabase(path);
 
     //if database does not exist yet it will return version 0

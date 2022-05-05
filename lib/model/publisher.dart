@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 class Publisher {
+  final int? id;
   final String name;
   final String address;
   final String phone;
   final String url;
   Publisher({
+    this.id,
     required this.name,
     required this.address,
     required this.phone,
@@ -14,6 +16,7 @@ class Publisher {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'address': address,
       'phone': phone,
@@ -23,6 +26,7 @@ class Publisher {
 
   factory Publisher.fromMap(Map<String, dynamic> map) {
     return Publisher(
+      id: map['id'] ?? 0,
       name: map['name'] ?? '',
       address: map['address'] ?? '',
       phone: map['phone'] ?? '',
@@ -37,6 +41,6 @@ class Publisher {
 
   @override
   String toString() {
-    return 'Publisher(name: $name, address: $address, phone: $phone, url: $url)';
+    return 'Publisher(id: $id,name: $name, address: $address, phone: $phone, url: $url)';
   }
 }

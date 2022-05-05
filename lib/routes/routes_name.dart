@@ -2,10 +2,10 @@
 // const String ResultRoute = "/result";
 const String HomeRoute = "/home";
 const String BookDetailRoute = "/bookDetail";
-// const String DownloadAudioVideoRoute = "/download";
-// const String NaatRoute = "/naat";
-// const String NaatDetailRoute = "/naatDetail";
-// const String NaatAudioRoute = "/naatAudio";
+const String AddBookRoute = "/addBook";
+const String AddAutherRoute = "/addAuther";
+const String AddPublisherRoute = "/addPublisher";
+const String AddWareHouseRoute = "/addWarehouse";
 // const String NaatVideoRoute = "/naatVideo";
 // const String NaatAkhirRoute = "/naatAkhir";
 // const String FavoriteRoute = "/favorite";

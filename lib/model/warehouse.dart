@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 class Warehouse {
+  final int? id;
   final String code;
   final String address;
   final String phone;
   Warehouse({
+    this.id,
     required this.code,
     required this.address,
     required this.phone,
@@ -12,6 +14,7 @@ class Warehouse {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'code': code,
       'address': address,
       'phone': phone,
@@ -20,6 +23,7 @@ class Warehouse {
 
   factory Warehouse.fromMap(Map<String, dynamic> map) {
     return Warehouse(
+      id: map['id'] ?? 0,
       code: map['code'] ?? '',
       address: map['address'] ?? '',
       phone: map['phone'] ?? '',
@@ -33,5 +37,5 @@ class Warehouse {
 
   @override
   String toString() =>
-      'Warehouse(code: $code, address: $address, phone: $phone)';
+      'Warehouse(id:$id,code: $code, address: $address, phone: $phone)';
 }

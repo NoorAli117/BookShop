@@ -1,3 +1,7 @@
+import 'package:bookshop/view/add_auther.dart';
+import 'package:bookshop/view/add_book.dart';
+import 'package:bookshop/view/add_publisher.dart';
+import 'package:bookshop/view/add_warehouse.dart';
 import 'package:bookshop/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,18 +17,22 @@ final appRoutes = [
       name: BookDetailRoute,
       page: () => const BookDetail(),
       middlewares: [AuthMiddleWare()]),
-  // GetPage(
-  //     name: DownloadAudioVideoRoute,
-  //     page: () => const Download(),
-  //     middlewares: [AuthMiddleWare()]),
-  // GetPage(
-  //     name: NaatRoute,
-  //     page: () => const NaatByHurf(),
-  //     middlewares: [AuthMiddleWare()]),
-  // GetPage(
-  //     name: NaatDetailRoute,
-  //     page: () => const NaatDetail(),
-  //     middlewares: [AuthMiddleWare()]),
+  GetPage(
+      name: AddBookRoute,
+      page: () => const AddBook(),
+      middlewares: [AuthMiddleWare()]),
+  GetPage(
+      name: AddPublisherRoute,
+      page: () => const AddPublisher(),
+      middlewares: [AuthMiddleWare()]),
+  GetPage(
+      name: AddAutherRoute,
+      page: () => const AddAuther(),
+      middlewares: [AuthMiddleWare()]),
+  GetPage(
+      name: AddWareHouseRoute,
+      page: () => const AddWarehouse(),
+      middlewares: [AuthMiddleWare()]),
 ];
 
 class AuthMiddleWare extends GetMiddleware {

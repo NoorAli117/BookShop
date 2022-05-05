@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class Book {
-  final int id;
+  final int? id;
   final String title;
   final int year;
   final int price;
@@ -11,7 +11,7 @@ class Book {
   final int createdDate;
   final int updatedDate;
   Book({
-    required this.id,
+    this.id,
     required this.title,
     required this.year,
     required this.price,
