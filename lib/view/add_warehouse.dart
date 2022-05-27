@@ -16,9 +16,15 @@ class AddWarehouse extends StatelessWidget {
       appBar: AppBar(
         title: 'Add WareHouse'.text.make(),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.lightBlue,
       ),
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage('assets/images/bg.jpeg'),
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.3), BlendMode.dstATop),
+        )),
         alignment: Alignment.center,
         child: FormBuilder(
           key: _controller.form_key,

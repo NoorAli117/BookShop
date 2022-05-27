@@ -34,22 +34,21 @@ Widget myTextField(
 
   return FormBuilderTextField(
     name: name,
-    textAlign: TextAlign.center,
     style: TextStyle(color: Colors.white),
     keyboardType: inputType ?? TextInputType.text,
 // initialValue: initval ?? stringVal,
     validator: (name) => name!.isEmpty && validator! ? '$name is Empty' : null,
     decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.deepPurple,
-        border: const OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(
-              Radius.circular(32),
-            )),
+        fillColor: Colors.white,
+        // border: const OutlineInputBorder(
+        //     borderSide: BorderSide.none,
+        //     borderRadius: BorderRadius.all(
+        //       Radius.circular(32),
+        //     )),
         prefixIcon: prefixIcon,
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white),
+        hintStyle: TextStyle(color: Colors.black),
         labelText: labelText),
   ).p4();
 }
@@ -67,20 +66,20 @@ Widget myDropDown(
     name: name,
     onChanged: onChanged,
     initialValue: initialValue,
-    dropdownColor: Colors.deepPurple,
+    dropdownColor: Colors.white,
     style: TextStyle(color: Colors.white),
     validator: (value) =>
         (value == null) && validator! ? '$name is Empty' : null,
     decoration: InputDecoration(
       filled: true,
-      fillColor: Colors.deepPurple,
-      border: const OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(
-            Radius.circular(32),
-          )),
+      fillColor: Colors.transparent,
+      // border: const OutlineInputBorder(
+      //     borderSide: BorderSide.none,
+      //     borderRadius: BorderRadius.all(
+      //       Radius.circular(32),
+      //     )),
       prefixIcon: prefixIcon,
-      hintStyle: TextStyle(color: Colors.white),
+      hintStyle: TextStyle(color: Colors.black),
       hintText: hintText,
       labelText: labelText,
     ),
@@ -89,8 +88,7 @@ Widget myDropDown(
             value: e,
             child: Text(
               '$e',
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.black),
             )))
         .toList(),
   ).p4();
@@ -102,11 +100,12 @@ Widget submitButton({
 }) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
+      primary: Colors.lightBlue,
       elevation: 3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
       minimumSize: const Size(200, 40), //////// HERE
     ),
     onPressed: onSubmit,
     child: Text(btnName ?? 'Submit'),
-  ).centered().pOnly(top: 20);
+  ).centered().pOnly(top: 10);
 }

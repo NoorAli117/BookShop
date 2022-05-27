@@ -23,56 +23,74 @@ class Home extends StatelessWidget {
             onTap: () => Get.toNamed(AddBookRoute),
           )
         ],
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.lightBlue,
       ),
-      body: Obx(
-        () => ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: _controller.bookList.length,
-          itemBuilder: (context, index) {
-            return Slidable(
-              closeOnScroll: true,
-              startActionPane:
-                  ActionPane(motion: const ScrollMotion(), children: [
-                SlidableAction(
-                  onPressed: (_) => _controller
-                      .goToBookDetail(_controller.bookList[index]!.id),
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.deepPurple,
-                  icon: Icons.details,
-                  label: 'Detail',
-                ),
-              ]),
-              child: Container(
-                width: size.width,
-                child: Container(
-                  height: size.height / 6,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(2, 5),
-                      ),
-                    ],
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage('assets/images/bg.jpeg'),
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.3), BlendMode.dstATop),
+        )),
+        child: Obx(
+          () => ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: _controller.bookList.length,
+            itemBuilder: (context, index) {
+              return Slidable(
+                closeOnScroll: true,
+                startActionPane:
+                    ActionPane(motion: const ScrollMotion(), children: [
+                  SlidableAction(
+                    onPressed: (_) => _controller
+                        .goToBookDetail(_controller.bookList[index]!.id),
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.lightBlue,
+                    icon: Icons.details,
+                    label: 'Detail',
                   ),
-                  child: ListTile(
-                    leading: Image.asset(
-                      'assets/images/bookimage.png',
-                      height: 80,
-                      width: 80,
+                ]),
+                child: Container(
+                  width: size.width,
+                  child: Container(
+                    height: size.height / 6,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(2, 5),
+                        ),
+                      ],
                     ),
-                    title: _controller.bookList[index]!.title.text
-                        .size(size.width / 15)
-                        .make(),
-                  ).centered(),
-                ).p12(),
-              ),
-            );
-          },
+                    child: Card(
+                      color: Colors.lightBlue,
+                      child: Row(
+                        children: [
+                          Card(
+                            semanticContainer: true,
+                            child: Image.asset(
+                              'assets/images/bookimage.png',
+                              height: 120,
+                              width: 120,
+                            ),
+                          ),
+                          _controller.bookList[index]!.title.text.bold
+                              .fontFamily('timeNewRoma')
+                              .size(22)
+                              .white
+                              .make()
+                              .p8(),
+                        ],
+                      ),
+                    ).centered(),
+                  ).p12(),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

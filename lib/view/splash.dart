@@ -9,6 +9,6 @@ class Splash extends GetView<SplashController> {
   Widget build(BuildContext context) {
     final _controller = Get.put(SplashController());
     return Container(
-        color: Colors.white, child: Image.asset('assets/images/book.webp'));
+        color: Colors.white, child: Image.asset('assets/images/splash.png'));
   }
 }
