@@ -30,6 +30,14 @@ class AddWarehouse extends StatelessWidget {
           key: _controller.form_key,
           child: ListView(
             children: [
+              const Image(
+                image: AssetImage(
+                  'assets/images/werehouse.png',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               myTextField(name: 'code', hintText: 'Enter Code'),
               myTextField(name: 'address', hintText: 'Enter Address'),
               myTextField(name: 'phone', hintText: 'Enter phone'),

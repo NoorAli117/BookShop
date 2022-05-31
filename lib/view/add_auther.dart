@@ -30,6 +30,15 @@ class AddAuther extends StatelessWidget {
           key: _controller.form_key,
           child: ListView(
             children: [
+              Container(
+                height: 250,
+                child: const Image(
+                  image: AssetImage('assets/images/auther.png'),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               myTextField(name: 'name', hintText: 'Enter Name'),
               myTextField(name: 'address', hintText: 'Enter Address'),
               myTextField(name: 'url', hintText: 'Enter Url'),

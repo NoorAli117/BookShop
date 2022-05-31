@@ -11,29 +11,44 @@ class SideDrawer extends StatelessWidget {
     final menu = ['Add Auther', 'Add Publisher', 'Add WareHouse'];
 
     return Drawer(
-      backgroundColor: Colors.lightBlue,
-      child: ListView.separated(
-          physics: const ClampingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return ListTile(
-              onTap: () => openMenu(index),
-              leading: menu[index].text.color(Colors.white).make(),
-              trailing: Icon(
-                Icons.add,
-                color: Colors.white,
+        backgroundColor: Colors.lightBlue,
+        child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Image(
+                  image: AssetImage('assets/images/splashDrawer.png'),
+                ),
               ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return const Divider(
-              color: Colors.white,
-              thickness: 1,
-              indent: 15,
-              endIndent: 15,
-            );
-          },
-          itemCount: menu.length),
-    );
+
+              // child:
+              ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      onTap: () => openMenu(index),
+                      leading: menu[index].text.color(Colors.white).make(),
+                      trailing: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      color: Colors.white,
+                      thickness: 1,
+                      indent: 15,
+                      endIndent: 15,
+                    );
+                  },
+                  itemCount: menu.length),
+            ]));
   }
 
   openMenu(int index) {

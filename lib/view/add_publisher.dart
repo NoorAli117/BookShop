@@ -30,6 +30,15 @@ class AddPublisher extends StatelessWidget {
           key: _controller.form_key,
           child: ListView(
             children: [
+              const SizedBox(
+                height: 30,
+              ),
+              const Image(
+                image: AssetImage('assets/images/publisher.png'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               myTextField(name: 'name', hintText: 'Enter Name'),
               myTextField(name: 'address', hintText: 'Enter Address'),
               myTextField(name: 'phone', hintText: 'Enter Phone'),
