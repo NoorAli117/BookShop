@@ -50,43 +50,47 @@ class Home extends StatelessWidget {
                     label: 'Detail',
                   ),
                 ]),
-                child: Container(
-                  width: size.width,
+                child: GestureDetector(
+                  onTap: () => _controller
+                      .goToBookDetail(_controller.bookList[index]!.id),
                   child: Container(
-                    height: size.height / 6,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(2, 5),
-                        ),
-                      ],
-                    ),
-                    child: Card(
-                      color: Colors.lightBlue,
-                      child: Row(
-                        children: [
-                          Card(
-                            semanticContainer: true,
-                            child: Image.asset(
-                              'assets/images/bookimage.png',
-                              height: 120,
-                              width: 120,
-                            ),
+                    width: size.width,
+                    child: Container(
+                      height: size.height / 6,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(2, 5),
                           ),
-                          _controller.bookList[index]!.title.text.bold
-                              .fontFamily('timeNewRoma')
-                              .size(22)
-                              .white
-                              .make()
-                              .p8(),
                         ],
                       ),
-                    ).centered(),
-                  ).p12(),
+                      child: Card(
+                        color: Colors.lightBlue,
+                        child: Row(
+                          children: [
+                            Card(
+                              semanticContainer: true,
+                              child: Image.asset(
+                                'assets/images/bookimage.png',
+                                height: 120,
+                                width: 120,
+                              ),
+                            ),
+                            _controller.bookList[index]!.title.text.bold
+                                .fontFamily('timeNewRoma')
+                                .size(22)
+                                .white
+                                .make()
+                                .p8(),
+                          ],
+                        ),
+                      ).centered(),
+                    ).p12(),
+                  ),
                 ),
               );
             },

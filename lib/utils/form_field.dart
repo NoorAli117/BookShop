@@ -34,13 +34,13 @@ Widget myTextField(
 
   return FormBuilderTextField(
     name: name,
-    style: TextStyle(color: Colors.white),
+    style: TextStyle(color: Colors.black),
     keyboardType: inputType ?? TextInputType.text,
 // initialValue: initval ?? stringVal,
     validator: (name) => name!.isEmpty && validator! ? '$name is Empty' : null,
     decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Colors.transparent,
         // border: const OutlineInputBorder(
         //     borderSide: BorderSide.none,
         //     borderRadius: BorderRadius.all(

@@ -11,22 +11,25 @@ class SideDrawer extends StatelessWidget {
     final menu = ['Add Auther', 'Add Publisher', 'Add WareHouse'];
 
     return Drawer(
+      backgroundColor: Colors.lightBlue,
       child: ListView.separated(
           physics: const ClampingScrollPhysics(),
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () => openMenu(index),
-              leading: const Icon(
+              leading: menu[index].text.color(Colors.white).make(),
+              trailing: Icon(
                 Icons.add,
-                color: Colors.deepPurple,
+                color: Colors.white,
               ),
-              title: menu[index].text.color(Colors.deepPurple).make(),
             );
           },
           separatorBuilder: (context, index) {
             return const Divider(
-              color: Colors.deepPurple,
-              thickness: 2,
+              color: Colors.white,
+              thickness: 1,
+              indent: 15,
+              endIndent: 15,
             );
           },
           itemCount: menu.length),

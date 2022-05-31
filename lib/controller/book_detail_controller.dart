@@ -26,7 +26,7 @@ class BookDetailController extends GetxController {
   getBookDetail(int id) async {
     var res = await BookDao().getAllBookData(id);
     print(res);
-    bookDetail.value = res.single;
+    bookDetail.value = res.first;
   }
 
   launcher(String number) async {
